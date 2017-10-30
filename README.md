@@ -4,16 +4,16 @@ Azure-P2S-S2S-VPN
 Background
 -------------------------
 This page will introduce how to transit point to site(P2S) VPN to other regions using site to site(S2S) VPN. <br>
-Customer have multiple Azure region deployment. They have mobile worker connect to Azure by point to site VPN. <br>
-Customer wants to single point of P2S VPN and extend the connectivity to all related Azure region. <br>
+Customer have multiple Azure regions deployment. All their mobile workers connect to Azure by point to site VPN. <br>
+Customer need one gateway to terminate all P2S VPN and extend the connectivity to all related Azure region. <br>
 
 Topology
 ----------------
 ![](https://github.com/yinghli/Azure-P2S-S2S-VPN/blob/master/topology.PNG)
 
 Customer have two regions on Azure. <br>
-One region is located at West Euro, VNET called P2S. The other is located at US East, VNET called S2S.<br>
-VPN gateway in VNET P2S will terminate all point to site VPN from Internet mobile user. At the same time, this gateway will connect to another region by IPSec VPN. BGP will be enabled on this link to transit route from each gateway. <br>
+One region is located at West Euro, VNET called P2S. The other region is located at US East, VNET called S2S.<br>
+VPN gateway in VNET P2S will terminate all point to site VPN from Internet mobile user. At the same time, this gateway will connect to another region by IPSec VPN. BGP will be enabled on this link to transit route from each other. <br>
 
 Design
 -------------------------
@@ -69,3 +69,11 @@ From the output, we can see that VNET learn both point to site VPN subnet (10.6.
 
 Mobile workstation setup
 -------------------------
+
+![](https://github.com/yinghli/Azure-P2S-S2S-VPN/blob/master/Mobile.PNG)
+After mobile station install the script from Azure VPN gateway, the route table will indicate that 10.5.0.0/16 and 10.6.0.0.24 need encrytion. At this time, no 10.0.0.0/16 route on mobile station route table.
+
+![](https://github.com/yinghli/Azure-P2S-S2S-VPN/blob/master/Mobile1.PNG)
+We need to add static route on the client and put it next hop to VPN tunnel. After that, mobile station can ping Azure remote region.
+
+![](https://github.com/yinghli/Azure-P2S-S2S-VPN/blob/master/ping.PNG)
