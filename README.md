@@ -7,18 +7,18 @@ This page will introduce how to transit point to site(P2S) VPN to other regions 
 Customer have multiple Azure region deployment. They have mobile worker connect to Azure by point to site VPN. <br>
 Customer wants to single point of P2S VPN and extend the connectivity to all related Azure region. <br>
 
-Toplogy
+Topology
 ----------------
 ![](https://github.com/yinghli/Azure-P2S-S2S-VPN/blob/master/topology.PNG)
 
-Customer have two region on Azure. <br>
+Customer have two regions on Azure. <br>
 One region is located at West Euro, VNET called P2S. The other is located at US East, VNET called S2S.<br>
-VPN gateway in VNET P2S will terminate all point to site VPN from Internet mobile user. At the same time, this gateway will connect to other region by IPSec VPN. BGP will enable on this link to transit route from each gateway. <br>
+VPN gateway in VNET P2S will terminate all point to site VPN from Internet mobile user. At the same time, this gateway will connect to another region by IPSec VPN. BGP will be enabled on this link to transit route from each gateway. <br>
 
 Design
 -------------------------
-By default, Azure VPN gateway will handle both site to site VPN and point to site VPN. After VPN gateway enable BGP, both network will advertise to remote BGP peer. This allow custome to transit local P2S VPN network information to any BGP enabled gateway. <br>
-One remote workstation, Azure will generate VPN client installation script. But this script will only install Azure VPN gateway VNET information to local routing table. Mobile user must install remote region route information by themselves. <br>
+By default, Azure VPN gateway will handle both site to site VPN and point to site VPN. After VPN gateway enable BGP, both network will be advertised to remote BGP peer. This allow customer to transit local P2S VPN network information to any BGP enabled gateway. <br>
+On remote workstation, Azure will generate VPN client installation script. But this script will only have Azure P2S VPN gateway VNET information. Only those route will be installed to local routing table. Mobile user must install remote region route information by themselves. <br>
 
 Azure point to site VPN setup
 ------------------------------
