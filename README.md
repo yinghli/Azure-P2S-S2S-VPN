@@ -1,2 +1,2 @@
 # Azure-P2S-S2S-VPN
-This page will introduce how to setup point to site VPN combined with site to site VPN. 
+This page will introduce how to transit point to site VPN to other regions using site to site VPN. 
