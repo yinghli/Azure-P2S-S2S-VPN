@@ -64,6 +64,7 @@ Azure BGP Public IP   | 13.90.85.209
 Azure BGP peer IP     | 10.0.1.254
 
 After we setup S2S VPN, we can check the VM effective route table to ensure they learn remote region route. <br>
+![](https://github.com/yinghli/Azure-P2S-S2S-VPN/blob/master/Route.PNG)
 From the output, we can see that VNET learn both point to site VPN subnet (10.6.0.0/24) and site to site VPN subnet (10.5.0.0/24). <br>
 
 Mobile workstation setup
