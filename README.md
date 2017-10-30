@@ -71,7 +71,7 @@ Mobile workstation setup
 -------------------------
 
 ![](https://github.com/yinghli/Azure-P2S-S2S-VPN/blob/master/Mobile.PNG) <br>
-After mobile station install the script from Azure VPN gateway, the route table will indicate that 10.5.0.0/16 and 10.6.0.0.24 need encrytion. At this time, no 10.0.0.0/16 route on mobile station route table.<br>
+After mobile station install the script from Azure VPN gateway, the route table will indicate that 10.5.0.0/16 and 10.6.0.0.24 need encryption. At this time, no 10.0.0.0/16 route on mobile station route table.<br>
 
 ![](https://github.com/yinghli/Azure-P2S-S2S-VPN/blob/master/Mobile1.PNG)<br>
 We need to add static route on the client and put it next hop to VPN tunnel. After that, mobile station can ping Azure remote region.<br>
